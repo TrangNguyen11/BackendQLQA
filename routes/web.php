@@ -16,6 +16,9 @@ Route::get('/', function(){
 });
 Route::group(['middleware' => 'api', 'prefix' => 'api'],function(){
     Route::post('postLogin', "LoginController@postLogin");
+    Route::post('dataAccount', "LoginController@getDataAccount"); 
+    Route::post('updateAccount', "LoginController@updateDataAccount"); 
+       
     Route::get('danhmuc', "HomeController@danhMuc");
     Route::get('hinh', "HomeController@hinh");
     Route::group(["prefix" => 'order' ],function(){
@@ -45,16 +48,35 @@ Route::group(['middleware' => 'api', 'prefix' => 'api'],function(){
             Route::get('getMonan', "MonanAdminController@loadDataMonan");   
             Route::post('updateMonan', "MonanAdminController@updateDataMonan");   
             Route::post('delMonan', "MonanAdminController@deleteMonan"); 
-            Route::post('insertMonan', "MonanAdminController@insertMonan"); 
-              
-                     
+            Route::post('insertMonan', "MonanAdminController@insertMonan");       
         });
         Route::group(["prefix" => 'nhanvien' ],function(){
             Route::get('getNhanvien', "LoginController@getDataNhanvien");
+            Route::post('delNhanvien', "LoginController@deleteNhanvien");
+            Route::post('updateNhanVien', "LoginController@updateDataNhanvien");
+            Route::post('insertNhanvien', "LoginController@insertNhanvien");
         });
         Route::group(["prefix" => 'thongke' ],function(){
             Route::get('getThongke', "HoaDonController@getThongke");
+            Route::get('getDataTKThang', "ThongKeController@getThongKeThang");
+            Route::get('getDataTKGio', "ThongKeController@getThongKeGio");
+            Route::get('getDataTKMonAn', "ThongKeController@getThongKeMonAn");
+            Route::get('getMonAn', "ThongKeController@getMonAn");
+            
         });
+        Route::group(["prefix" => 'khuyenmai' ],function(){
+            Route::get('getKhuyenmai', "KhuyenMaiController@loadDataKhuyenmai");
+            Route::post('delKhuyenmai', "KhuyenMaiController@deleteKhuyenmai");
+            Route::post('updateKhuyenmai', "KhuyenMaiController@updateDataKhuyenmai");
+            Route::post('insertKhuyenmai', "KhuyenMaiController@insertKhuyenmai");
+        });
+        Route::group(["prefix" => 'danhmuc' ],function(){
+            Route::get('getDanhmuc', "DanhMucController@loadDataDanhmuc");
+            Route::post('delDanhmuc', "DanhMucController@deleteDanhmuc");
+            Route::post('updateDanhmuc', "DanhMucController@updateDataDanhmuc");
+            Route::post('insertDanhmuc', "DanhMucController@insertDanhmuc");
+        });      
+        
     });
 });
 
