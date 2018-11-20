@@ -62,7 +62,7 @@ Route::group(['middleware' => 'api', 'prefix' => 'api'],function(){
             Route::get('getDataTKGio', "ThongKeController@getThongKeGio");
             Route::get('getDataTKMonAn', "ThongKeController@getThongKeMonAn");
             Route::get('getMonAn', "ThongKeController@getMonAn");
-            
+            Route::post('changeSelect', "ThongKeController@changeSelect");
         });
         Route::group(["prefix" => 'khuyenmai' ],function(){
             Route::get('getKhuyenmai', "KhuyenMaiController@loadDataKhuyenmai");

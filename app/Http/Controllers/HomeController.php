@@ -19,11 +19,11 @@ class HomeController extends Controller
     public function __construct()
     {    }
     function loadData(){
-      $monan = monan::get();
+      $monan = monan::where('daxoa', 0)->get();
       return response()->json(['monan' => $monan]);
     }
     function danhMuc(){
-      $dm = danhmuc::get();
+      $dm = danhmuc::where('trangthai', 0)->get();
       return response()->json(['danhmuc' => $dm]);
     }
     function hinh(){

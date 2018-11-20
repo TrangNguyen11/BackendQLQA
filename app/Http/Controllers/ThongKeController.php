@@ -35,4 +35,9 @@ class ThongKeController extends Controller
       $data = DB::select('SELECT id, tenmon FROM `monan`');
       return response()->json(['data' => $data]);
     }
+    function changeSelect(Request $res){
+      $data = $res->item;
+      $result = DB::select("SELECT * FROM `hoadon` WHERE MONTH(datedt) = '$data'");
+      return response()->json(['result' => $result]);
+    }
 }
