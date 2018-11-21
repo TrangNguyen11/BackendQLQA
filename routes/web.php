@@ -55,6 +55,8 @@ Route::group(['middleware' => 'api', 'prefix' => 'api'],function(){
             Route::post('delNhanvien', "LoginController@deleteNhanvien");
             Route::post('updateNhanVien', "LoginController@updateDataNhanvien");
             Route::post('insertNhanvien', "LoginController@insertNhanvien");
+            Route::post('checkSdtNV', "LoginController@checkSDT");
+            
         });
         Route::group(["prefix" => 'thongke' ],function(){
             Route::get('getThongke', "HoaDonController@getThongke");
@@ -69,6 +71,8 @@ Route::group(['middleware' => 'api', 'prefix' => 'api'],function(){
             Route::post('delKhuyenmai', "KhuyenMaiController@deleteKhuyenmai");
             Route::post('updateKhuyenmai', "KhuyenMaiController@updateDataKhuyenmai");
             Route::post('insertKhuyenmai', "KhuyenMaiController@insertKhuyenmai");
+            Route::post('checkMa', "KhuyenMaiController@checkMaKM");
+            
         });
         Route::group(["prefix" => 'danhmuc' ],function(){
             Route::get('getDanhmuc', "DanhMucController@loadDataDanhmuc");

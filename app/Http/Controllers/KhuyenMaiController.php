@@ -34,6 +34,10 @@ class KhuyenMaiController extends Controller
       $result = khuyenmai::insert($data);
       return response()->json(['result' => $result]);
     }
+    function checkMaKM(Request $res){
+      $result = khuyenmai::where('id', $res->item)->get();
+      return $result;
+    }
     
     
 }

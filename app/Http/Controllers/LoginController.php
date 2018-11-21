@@ -49,4 +49,8 @@ class LoginController extends Controller
       $result = login::where('id', $data['id'])->update($data);
       return response()->json(['result' => $result]);
     }
+    public function checkSDT(Request $res){
+        $result = login::where('sdt', $res->item)->get();
+        return $result;
+    }
 }
